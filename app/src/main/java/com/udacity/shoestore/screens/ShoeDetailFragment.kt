@@ -11,11 +11,19 @@ import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 import com.udacity.shoestore.models.Shoe
+import com.udacity.shoestore.models.ShoeLabel
 import com.udacity.shoestore.viewModels.ShoeListViewModel
 
 class ShoeDetailFragment : Fragment() {
 
     private lateinit var viewModel: ShoeListViewModel
+
+    private val shoeLabel: ShoeLabel = ShoeLabel(
+        "Shoe Name:",
+        "Company:",
+        "Shoe Size:",
+        "Description:",
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,30 +34,34 @@ class ShoeDetailFragment : Fragment() {
             inflater, R.layout.fragment_shoe_detail, container, false
         )
 
-        viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(ShoeListViewModel::class.java)
 
+        binding.shoeLabel = shoeLabel
 
         binding.cancelButton.setOnClickListener {
             findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }
 
         binding.saveButton.setOnClickListener {
-            val shoe = Shoe(
-                binding.shoenameEdittext.text.toString(),
-                binding.shoesizeEdittext.text.toString().toDouble(),
-                binding.companyEdittext.text.toString(),
-                binding.descriptionEdittext.text.toString()
-            )
-            viewModel.shoeList.value?.plus(shoe)
+            binding.apply {
+                if (shoesizeEdittext.text.isNotEmpty()) {
+                    val shoe = Shoe(
+                        shoenameEdittext.text.toString(),
+                        shoesizeEdittext.text.toString().toDouble(),
+                        companyEdittext.text.toString(),
+                        descriptionEdittext.text.toString(),
+                    )
 
-            for (i in viewModel.shoeList.value!!) {
-                println(i)
+                    viewModel.addShoe(shoe)
+
+                    findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
+                }
             }
 
-            findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }
 
         return binding.root
     }
+
 
 }
