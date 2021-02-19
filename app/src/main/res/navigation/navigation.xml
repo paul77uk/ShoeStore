@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.udacity.shoestore.screens.LoginFragment"
-        android:label="ShoeStore Login">
+        android:label="Shoe Store Login">
         <action
             android:id="@+id/action_loginFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
@@ -16,7 +16,7 @@
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.udacity.shoestore.screens.WelcomeFragment"
-        android:label="ShoeStore Welcome"
+        android:label="Shoe Store Welcome"
         tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_welcomeFragment_to_instructionsFragment"
@@ -36,7 +36,7 @@
         android:name="com.udacity.shoestore.screens.ShoeListFragment"
         android:label="Shoe Store List"
         tools:layout="@layout/shoe_list_fragment">
-        <action
+        <action app:popUpToInclusive="true"
             android:id="@+id/action_shoeListFragment_to_shoeDetailFragment"
             app:destination="@id/shoeDetailFragment" />
     </fragment>
