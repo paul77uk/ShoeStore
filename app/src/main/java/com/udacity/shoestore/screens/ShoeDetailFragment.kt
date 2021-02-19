@@ -44,7 +44,12 @@ class ShoeDetailFragment : Fragment() {
 
         binding.saveButton.setOnClickListener {
             binding.apply {
-                if (shoesizeEdittext.text.isNotEmpty()) {
+                if (
+                    shoenameEdittext.text.isNotEmpty() &&
+                    shoesizeEdittext.text.isNotEmpty() &&
+                    companyEdittext.text.isNotEmpty() &&
+                    descriptionEdittext.text.isNotEmpty()
+                ) {
                     val shoe = Shoe(
                         shoenameEdittext.text.toString(),
                         shoesizeEdittext.text.toString().toDouble(),
@@ -55,6 +60,13 @@ class ShoeDetailFragment : Fragment() {
                     viewModel.addShoe(shoe)
 
                     findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
+                } else {
+                    val string = "cannot be empty"
+                    shoenameEdittext.hint = string
+                    shoesizeEdittext.hint = string
+                    companyEdittext.hint = string
+                    descriptionEdittext.hint = string
+
                 }
             }
 

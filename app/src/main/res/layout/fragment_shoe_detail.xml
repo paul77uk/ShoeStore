@@ -6,6 +6,7 @@
     tools:context=".screens.ShoeDetailFragment">
 
     <data>
+
         <variable
             name="shoeLabel"
             type="com.udacity.shoestore.models.ShoeLabel" />
@@ -43,6 +44,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
+                    android:textColorHint="#E91E63"
                     app:layout_constraintBaseline_toBaselineOf="@+id/shoename_label"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -73,6 +75,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName|textCapCharacters"
+                    android:textColorHint="#E91E63"
                     app:layout_constraintBaseline_toBaselineOf="@+id/company_label"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -103,6 +106,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="numberDecimal"
+                    android:textColorHint="#E91E63"
                     app:layout_constraintBaseline_toBaselineOf="@+id/shoesize_label"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -133,6 +137,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName|textCapWords"
+                    android:textColorHint="#E91E63"
                     app:layout_constraintBaseline_toBaselineOf="@+id/description_label"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -146,10 +151,9 @@
 
                 <Button
                     android:id="@+id/cancel_button"
+                    style="@style/buttonTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="8dp"
                     android:text="Cancel"
                     app:layout_constraintEnd_toStartOf="@+id/save_button"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -159,6 +163,7 @@
 
                 <Button
                     android:id="@+id/save_button"
+                    style="@style/buttonTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Save"

@@ -79,11 +79,4 @@ class ShoeListFragment : Fragment() {
                 || super.onOptionsItemSelected(item)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
-        // TODO: Use the ViewModel
-
-    }
-
 }
