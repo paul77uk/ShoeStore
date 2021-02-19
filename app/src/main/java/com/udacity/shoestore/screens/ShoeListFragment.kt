@@ -18,10 +18,6 @@ import com.udacity.shoestore.viewModels.ShoeListViewModel
 
 class ShoeListFragment : Fragment() {
 
-//    companion object {
-//        fun newInstance() = ShoeListFragment()
-//    }
-
     private lateinit var viewModel: ShoeListViewModel
 
     override fun onCreateView(
@@ -36,12 +32,6 @@ class ShoeListFragment : Fragment() {
         )
 
         viewModel = ViewModelProvider(requireActivity()).get(ShoeListViewModel::class.java)
-
-//        binding.textView5.text = viewModel.shoeList.value?.get(0)?.name?: null
-//        binding.linearLayout.addView()
-//        for (i in viewModel.shoeList.value!!) {
-//            binding.linearLayout.addView(i)
-//
 
         viewModel.shoeList.observe(viewLifecycleOwner, { it ->
             it.forEach {
