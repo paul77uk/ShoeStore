@@ -47,7 +47,7 @@ class ShoeListFragment : Fragment() {
                 val company = it.company
                 companyTextView.text = company
                 companyTextView.textSize = 20F
-                companyTextView.setTextColor(Color.BLACK)
+                companyTextView.setTextColor(Color.GRAY)
                 companyTextView.setPadding(64, 16, 0, 0)
                 binding.linearLayout.addView(companyTextView)
 
