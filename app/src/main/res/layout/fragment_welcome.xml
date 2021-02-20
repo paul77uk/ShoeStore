@@ -1,43 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".screens.WelcomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!--    Using a LinearLayout as this suits this
+    as it is a simple vertical layout ideal for LinearLayout-->
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="32dp"
-            android:text="Welcome to the shoe app"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="@string/welcome_title_text"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_margin="16dp"
             android:gravity="center"
-            android:text="Click the button below to be taken to the instructions screen"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            android:text="@string/welcome_text" />
 
         <Button
             android:id="@+id/instuctions_button"
-            style="@style/buttonTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Instructions"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_gravity="center"
+            android:text="@string/welcome_button_text" />
+    </LinearLayout>
 </layout>

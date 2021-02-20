@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
@@ -16,7 +16,7 @@ import com.udacity.shoestore.viewModels.ShoeListViewModel
 
 class ShoeDetailFragment : Fragment() {
 
-    private lateinit var viewModel: ShoeListViewModel
+    private val viewModel: ShoeListViewModel by activityViewModels()
 
     private val shoeLabel: ShoeLabel = ShoeLabel(
         "Shoe Name:",
@@ -33,8 +33,6 @@ class ShoeDetailFragment : Fragment() {
         val binding: FragmentShoeDetailBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_shoe_detail, container, false
         )
-
-        viewModel = ViewModelProvider(requireActivity()).get(ShoeListViewModel::class.java)
 
         binding.shoeLabel = shoeLabel
 

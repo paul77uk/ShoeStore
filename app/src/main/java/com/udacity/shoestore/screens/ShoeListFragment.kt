@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.core.view.setPadding
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -18,7 +18,7 @@ import com.udacity.shoestore.viewModels.ShoeListViewModel
 
 class ShoeListFragment : Fragment() {
 
-    private lateinit var viewModel: ShoeListViewModel
+    private val viewModel: ShoeListViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,8 +30,6 @@ class ShoeListFragment : Fragment() {
         val binding: ShoeListFragmentBinding = DataBindingUtil.inflate(
             inflater, R.layout.shoe_list_fragment, container, false
         )
-
-        viewModel = ViewModelProvider(requireActivity()).get(ShoeListViewModel::class.java)
 
         viewModel.shoeList.observe(viewLifecycleOwner, { it ->
             it.forEach {

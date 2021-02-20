@@ -26,3 +26,4 @@ class ShoeListViewModel : ViewModel() {
         shoesList.add(shoe)
     }
 }
+
